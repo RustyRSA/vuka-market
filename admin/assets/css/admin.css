@@ -1,0 +1,12 @@
+/* Vuka Admin theme */
+:root { --vk-navy:#1f3864; --vk-blue:#2e75b6; }
+body.vk-admin { background:#eef1f6; }
+.vk-admin-top { background: var(--vk-navy); }
+.vk-side { width:230px; min-height:calc(100vh - 56px); background:#fff; border-right:1px solid #e3e8f0; }
+.vk-side .nav-link { color:#334; border-radius:.4rem; }
+.vk-side .nav-link:hover { background:#eef3fb; color:var(--vk-blue); }
+.vk-admin-main { min-height:calc(100vh - 56px); }
+.vk-stat { border-left:4px solid var(--vk-blue); }
+.vk-stat-num { font-size:1.8rem; font-weight:700; color:var(--vk-navy); }
+.card { border:1px solid #e3e8f0; border-radius:.6rem; }
+@media (max-width: 992px){ .vk-side{ width:100%; min-height:auto; } }

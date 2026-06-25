@@ -1,0 +1,39 @@
+/* Vuka Market - custom theme on top of Bootstrap 5 */
+:root {
+  --vk-navy:  #1f3864;
+  --vk-blue:  #2e75b6;
+  --vk-green: #2e9e5b;
+  --vk-orange:#e0782e;
+}
+body { background: #f6f8fb; color: #222; }
+
+/* Navbar + brand */
+.vk-navbar { background: var(--vk-navy); }
+.navbar-brand { letter-spacing: .3px; }
+.vk-accent { color: var(--vk-green); }
+
+/* Hero banner on the home page */
+.vk-hero {
+  background: linear-gradient(135deg, var(--vk-navy), var(--vk-blue));
+}
+
+/* Listing cards */
+.vk-card { border: 1px solid #e6e9ef; border-radius: .75rem; transition: box-shadow .15s ease, transform .15s ease; }
+.vk-card:hover { box-shadow: 0 .5rem 1rem rgba(31,56,100,.12); transform: translateY(-2px); }
+.vk-thumb { height: 150px; object-fit: cover; border-top-left-radius: .75rem; border-top-right-radius: .75rem; }
+.vk-price { color: var(--vk-green); font-weight: 700; font-size: 1.1rem; }
+.vk-title { color: #222; text-decoration: none; font-weight: 500; display: block; }
+.vk-title:hover { color: var(--vk-blue); }
+.vk-stars { color: var(--vk-orange); font-weight: 600; }
+.vk-seller-box { background: #fff; border: 1px solid #e6e9ef; }
+
+/* Footer */
+.vk-footer { background: var(--vk-navy); color: #cdd6e6; }
+.vk-footer a { color: #fff; }
+
+/* Responsive tweak: tighten hero on small screens */
+@media (max-width: 576px) {
+  .vk-hero { padding: 2rem 1rem !important; }
+  .vk-hero h1 { font-size: 1.5rem; }
+  .vk-thumb { height: 120px; }
+}
