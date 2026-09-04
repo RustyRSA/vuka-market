@@ -24,8 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
              VALUES (?, ?, ?, ?, ?, ?, ?, "active")'
         );
         $ins->execute([current_user()['user_id'], $cat, $title, $desc, $price, $cond, $loc]);
+        $newId = (int) db()->lastInsertId();
+
+        // Store the uploaded photo (if any) against the new listing
+        if (!empty($_FILES['photo'])) {
+            save_listing_image($newId, $_FILES['photo'], true);
+        }
+
         set_flash('success', 'Your listing is now live!');
-        redirect('listing.php?id=' . db()->lastInsertId());
+        redirect('listing.php?id=' . $newId);
     }
 }
 require_once __DIR__ . '/../includes/header.php';
@@ -34,7 +41,7 @@ require_once __DIR__ . '/../includes/header.php';
   <div class="col-lg-7">
     <h3 class="mb-3">List an item for sale</h3>
     <?php foreach ($errors as $err): ?><div class="alert alert-danger"><?= e($err) ?></div><?php endforeach; ?>
-    <form method="post" class="card p-4 shadow-sm">
+    <form method="post" enctype="multipart/form-data" class="card p-4 shadow-sm">
       <input type="hidden" name="csrf" value="<?= e(csrf_token()) ?>">
       <div class="mb-3"><label class="form-label">Title</label>
         <input name="title" class="form-control" placeholder="e.g. Samsung A14 in good condition" required></div>

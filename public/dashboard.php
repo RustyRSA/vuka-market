@@ -70,16 +70,19 @@ require_once __DIR__ . '/../includes/header.php';
   <div class="tab-pane fade" id="selling">
     <div class="table-responsive">
       <table class="table align-middle">
-        <thead><tr><th>Item</th><th>Price</th><th>Status</th></tr></thead>
+        <thead><tr><th>Item</th><th>Price</th><th>Status</th><th></th></tr></thead>
         <tbody>
         <?php foreach ($myListings as $l): ?>
           <tr>
             <td><a href="listing.php?id=<?= (int)$l['listing_id'] ?>"><?= e($l['title']) ?></a></td>
             <td><?= money($l['price']) ?></td>
             <td><span class="badge bg-light text-dark border text-capitalize"><?= e($l['status']) ?></span></td>
+            <td class="text-end">
+              <a class="btn btn-sm btn-outline-primary" href="edit_listing.php?id=<?= (int)$l['listing_id'] ?>">Edit</a>
+            </td>
           </tr>
         <?php endforeach; ?>
-        <?php if (!$myListings): ?><tr><td colspan="3" class="text-muted">You have no listings. <a href="sell.php">Sell something</a>.</td></tr><?php endif; ?>
+        <?php if (!$myListings): ?><tr><td colspan="4" class="text-muted">You have no listings. <a href="sell.php">Sell something</a>.</td></tr><?php endif; ?>
         </tbody>
       </table>
     </div>

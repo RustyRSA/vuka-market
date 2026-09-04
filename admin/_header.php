@@ -33,6 +33,7 @@ $me = current_user();
       <?php endif; ?>
       <?php if (has_permission('moderate_listings')): ?>
         <li class="nav-item"><a class="nav-link" href="listings.php">Listings</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.php">Categories (Menu)</a></li>
       <?php endif; ?>
     </ul>
   </aside>

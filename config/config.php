@@ -3,9 +3,9 @@
  * Vuka Market - central configuration.
  * Update the DB_* constants to match your hosting environment.
  */
-define('DB_HOST', getenv('DB_HOST') ?: '');
-define('DB_NAME', getenv('DB_NAME') ?: '');
-define('DB_USER', getenv('DB_USER') ?: '');
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'vuka_market');
+define('DB_USER', getenv('DB_USER') ?: 'root');
 define('DB_PASS', getenv('DB_PASS') ?: '');
 
 define('SITE_NAME', 'Vuka Market');
